@@ -32,4 +32,18 @@ public class BlocRestController {
     public void deleteBlocById(@PathVariable Long idB) {
         iBlocService.deleteBlocById(idB);
     }
+    @PostMapping("affecterChambresABloc/{idB}")
+    public Bloc affecterChambresABloc(@RequestBody List<Long> numC,@PathVariable Long idB){
+        return   iBlocService.affecterChambresABloc(numC,idB);
+    }
+    @PostMapping("affecterBlocAFoyer/{idB}/{idF}")
+    public Bloc affecterBlocAFoyer(@PathVariable Long idB,@PathVariable Long idF){
+        return iBlocService.affecterBlocAFoyer(idB,idF);
+    }
+    @GetMapping("getBlocByCapacite/{capacite}")
+    public List<Bloc> getBlocByCapacite(@PathVariable Long capacite){
+        return iBlocService.getBlocByCapacite(capacite);
+    }
+
+
 }

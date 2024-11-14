@@ -11,4 +11,8 @@ public interface IBlocService {
     public List<Bloc> retrieveAllBloc();
     public Bloc retrieveBlocById(Long idB);
     public void deleteBlocById(Long idB);
+    public Bloc affecterChambresABloc(List<Long> numC, Long idB) ;
+    public Bloc affecterBlocAFoyer (Long idB, Long idF) ;
+    public List<Bloc> getBlocByCapacite(Long capacite);
+
 }

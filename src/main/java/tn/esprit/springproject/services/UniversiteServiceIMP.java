@@ -47,4 +47,12 @@ public class UniversiteServiceIMP implements IUniversiteService{
 
         return universiteRepository.save(u);
     }
+
+    @Override
+    public Universite desaffecterFoyerFromUniversite(Long idU) {
+        Universite u = universiteRepository.findById(idU).orElse(null);
+        u.setFoyer(null);
+        return universiteRepository.save(u);
+    }
+
 }

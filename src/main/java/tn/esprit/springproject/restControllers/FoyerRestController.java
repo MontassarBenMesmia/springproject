@@ -32,4 +32,14 @@ public class FoyerRestController {
     public void deleteFoyerById(@PathVariable Long idF) {
         iFoyerService.deleteFoyerById(idF);
     }
+    @PostMapping("ajouterFoyerEtAffecterAUniversite/{idU}")
+    public Foyer ajouterFoyerEtAffecterAUniversite (@RequestBody Foyer foyer,@PathVariable Long idU) {
+        return   iFoyerService.ajouterFoyerEtAffecterAUniversite(foyer,idU);
+
+    }
+    @GetMapping("getFoyerByNom/{nomF}")
+    public  Foyer getFoyerByNom(@PathVariable String nomF){
+        return  iFoyerService.getFoyerByNom(nomF);
+    }
+
 }

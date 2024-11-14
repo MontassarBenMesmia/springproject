@@ -12,4 +12,7 @@ public interface IUniversiteService {
     public Universite retrieveUniversiteById(Long idU);
     public void deleteUniversiteById(Long idU);
     public Universite affecterFoyerAUniversite(Long idF, Long idU);
+    public Universite desaffecterFoyerFromUniversite (Long idU) ;
+
+
 }
