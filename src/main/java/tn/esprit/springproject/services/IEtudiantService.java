@@ -3,6 +3,7 @@ package tn.esprit.springproject.services;
 import tn.esprit.springproject.entities.Etudiant;
 import tn.esprit.springproject.entities.Foyer;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IEtudiantService {
@@ -11,4 +12,6 @@ public interface IEtudiantService {
     public List<Etudiant> retrieveAllEtudiant();
     public Etudiant retrieveEtudiantById(Long idE);
     public void deleteEtudiantById(Long idE);
+
+    public List<Etudiant> recupererEtudiantsSelonEcoleEtDateNaissance(String ecole, Date date);
 }

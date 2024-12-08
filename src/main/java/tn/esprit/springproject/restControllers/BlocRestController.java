@@ -1,6 +1,7 @@
 package tn.esprit.springproject.restControllers;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.springproject.entities.Bloc;
 import tn.esprit.springproject.entities.Etudiant;
@@ -43,6 +44,15 @@ public class BlocRestController {
     @GetMapping("getBlocByCapacite/{capacite}")
     public List<Bloc> getBlocByCapacite(@PathVariable Long capacite){
         return iBlocService.getBlocByCapacite(capacite);
+    }
+
+    @PutMapping("/{blocId}/foyer/{foyerId}")
+    public ResponseEntity<String> assignBlocToFoyerUsingJPQL(
+            @PathVariable Long blocId,
+            @PathVariable Long foyerId
+    ) {
+        iBlocService.assignBlocToFoyerUsingJPQL(blocId, foyerId);
+        return ResponseEntity.ok("Bloc assigné au Foyer avec succès.");
     }
 
 

@@ -14,5 +14,6 @@ public interface IChambreService {
     public void deleteChambreById(Long idC);
     public List<Chambre> getChambreByType(TypeChambre typeChambre);
     public List<Chambre> getChambresParBlocEtType(Long idB,TypeChambre typeChambre);
+    public List<Chambre> findChambresByStudentCin(Long cin);
 
 }

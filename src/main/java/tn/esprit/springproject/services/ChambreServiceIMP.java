@@ -48,4 +48,9 @@ public class ChambreServiceIMP implements IChambreService{
         //JPQL
         return chambreRepository.getChambreByBlocAndTypeC(idB,typeChambre);
     }
+
+
+    public List<Chambre> findChambresByStudentCin(Long cin) {
+        return chambreRepository.trouverChselonEt(cin);
+    }
 }

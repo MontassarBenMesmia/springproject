@@ -1,5 +1,6 @@
 package tn.esprit.springproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,5 +24,7 @@ public class Etudiant implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateNaissance ;
     @ManyToMany(mappedBy="etudiants")
+    @ToString.Exclude
+    @JsonIgnore
     private Set<Reservation> reservations;
 }

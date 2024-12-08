@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entities.Etudiant;
 import tn.esprit.springproject.repositories.EtudiantRepository;
 
+import java.util.Date;
 import java.util.List;
 @Service
 
@@ -35,5 +36,10 @@ public class EtudiantServiceIMP implements IEtudiantService{
     @Override
     public void deleteEtudiantById(Long idE) {
         etudiantRepository.deleteById(idE);
+    }
+
+    @Override
+    public List<Etudiant> recupererEtudiantsSelonEcoleEtDateNaissance(String ecole, Date date) {
+        return etudiantRepository.findByEcoleAndDateNaissanceGreaterThan(ecole,date);
     }
 }

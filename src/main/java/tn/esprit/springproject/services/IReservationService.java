@@ -13,4 +13,5 @@ public interface IReservationService {
     public Reservation retrieveReservationById(String idR);
     public void deleteReservationById(String idR);
     public long getReservationParAnneeUniversitaire(LocalDate date1,LocalDate date2);
+
 }

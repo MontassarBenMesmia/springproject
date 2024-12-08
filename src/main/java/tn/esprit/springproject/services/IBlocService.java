@@ -14,5 +14,6 @@ public interface IBlocService {
     public Bloc affecterChambresABloc(List<Long> numC, Long idB) ;
     public Bloc affecterBlocAFoyer (Long idB, Long idF) ;
     public List<Bloc> getBlocByCapacite(Long capacite);
+    public void assignBlocToFoyerUsingJPQL(Long blocId, Long foyerId);
 
 }

@@ -1,7 +1,9 @@
 package tn.esprit.springproject.services;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tn.esprit.springproject.entities.Bloc;
 import tn.esprit.springproject.entities.Chambre;
 import tn.esprit.springproject.entities.Foyer;
@@ -64,5 +66,19 @@ public class BlocServiceIMP implements IBlocService {
     @Override
     public List<Bloc> getBlocByCapacite(Long capacite) {
         return blocRepository.findByCapaciteB(capacite);
+    }
+
+    @Transactional
+    public void assignBlocToFoyerUsingJPQL(Long blocId, Long foyerId) {
+        // Récupérer le Foyer par son ID
+        Foyer foyer = foyerRepository.findById(foyerId)
+                .orElseThrow(() -> new EntityNotFoundException("Foyer introuvable avec l'ID : " + foyerId));
+
+        // Utiliser JPQL pour mettre à jour le Bloc
+        int updatedRows = blocRepository.assignBlocToFoyer(blocId, foyer);
+
+        if (updatedRows == 0) {
+            throw new EntityNotFoundException("Bloc introuvable avec l'ID : " + blocId);
+        }
     }
 }

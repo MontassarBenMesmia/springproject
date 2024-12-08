@@ -44,4 +44,8 @@ public class ChambreRestController {
         return iChambreService.getChambresParBlocEtType(idB,typeChambre);
 
     }
+    @GetMapping("/by-student-cin/{cin}")
+    public List<Chambre> getChambresByStudentCin(@PathVariable Long cin) {
+        return iChambreService.findChambresByStudentCin(cin);
+    }
 }
